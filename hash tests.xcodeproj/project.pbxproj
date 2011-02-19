@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		296BEB2D1310131A0026BF42 /* NSString+Digest.m in Sources */ = {isa = PBXBuildFile; fileRef = 296BEB2C1310131A0026BF42 /* NSString+Digest.m */; };
 		8DD76F9A0486AA7600D96B5E /* hash tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 08FB7796FE84155DC02AAC07 /* hash tests.m */; settings = {ATTRIBUTES = (); }; };
 		8DD76F9C0486AA7600D96B5E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FB779EFE84155DC02AAC07 /* Foundation.framework */; };
 		8DD76F9F0486AA7600D96B5E /* hash tests.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6859EA3029092ED04C91782 /* hash tests.1 */; };
@@ -28,6 +29,8 @@
 /* Begin PBXFileReference section */
 		08FB7796FE84155DC02AAC07 /* hash tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "hash tests.m"; sourceTree = "<group>"; };
 		08FB779EFE84155DC02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		296BEB2B1310131A0026BF42 /* NSString+Digest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Digest.h"; sourceTree = "<group>"; };
+		296BEB2C1310131A0026BF42 /* NSString+Digest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Digest.m"; sourceTree = "<group>"; };
 		32A70AAB03705E1F00C91783 /* hash tests_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "hash tests_Prefix.pch"; sourceTree = "<group>"; };
 		8DD76FA10486AA7600D96B5E /* hash tests */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "hash tests"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6859EA3029092ED04C91782 /* hash tests.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = "hash tests.1"; sourceTree = "<group>"; };
@@ -61,6 +64,8 @@
 			children = (
 				32A70AAB03705E1F00C91783 /* hash tests_Prefix.pch */,
 				08FB7796FE84155DC02AAC07 /* hash tests.m */,
+				296BEB2B1310131A0026BF42 /* NSString+Digest.h */,
+				296BEB2C1310131A0026BF42 /* NSString+Digest.m */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -140,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8DD76F9A0486AA7600D96B5E /* hash tests.m in Sources */,
+				296BEB2D1310131A0026BF42 /* NSString+Digest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
