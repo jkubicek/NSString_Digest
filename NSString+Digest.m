@@ -6,43 +6,36 @@
 
 - (NSString *)MD5
 { 
-    return [self hashWithDigestType:NSStringDigestTypeMD5];
+    return [self hashWithDigestType:JKStringDigestTypeMD5];
 }
 
 - (NSString *)SHA1
 { 
-    return [self hashWithDigestType:NSStringDigestTypeSHA1];
+    return [self hashWithDigestType:JKStringDigestTypeSHA1];
 }
 
-- (NSString *)hashWithDigestType:(NSStringDigestType)type {
+- (NSString *)hashWithDigestType:(JKStringDigestType)type {
     const char *s = [self UTF8String];
     int digestLength;
+    unsigned char * (*digFunc)(const void *, CC_LONG, unsigned char *) = NULL;
     
     switch (type) {
-        case NSStringDigestTypeMD5:
+        case JKStringDigestTypeMD5:
             digestLength = CC_MD5_DIGEST_LENGTH;
+            digFunc = CC_MD5;
             break;
-        case NSStringDigestTypeSHA1:
+        case JKStringDigestTypeSHA1:
             digestLength = CC_SHA1_DIGEST_LENGTH;
+            digFunc = CC_SHA1;
             break;
-        case NSStringDigestTypeSHA512:
+        case JKStringDigestTypeSHA512:
             digestLength = CC_SHA512_DIGEST_LENGTH;
+            digFunc = CC_SHA512;
             break;
     }
     
     unsigned char result[digestLength]; 
-    
-    switch (type) {
-        case NSStringDigestTypeMD5:
-            CC_MD5(s, strlen(s), result);
-            break;
-        case NSStringDigestTypeSHA1:
-            CC_SHA1(s, strlen(s), result);
-            break;
-        case NSStringDigestTypeSHA512:
-            CC_SHA512(s, strlen(s), result);
-            break;
-    }
+    digFunc(s, strlen(s), result);
     
     NSMutableString *digest = [NSMutableString stringWithCapacity:(digestLength * 2)];
     for (NSUInteger i = 0; i < digestLength; i++)
