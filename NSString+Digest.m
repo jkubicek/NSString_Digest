@@ -17,25 +17,25 @@
 - (NSString *)hashWithDigestType:(JKStringDigestType)type {
     const char *s = [self UTF8String];
     int digestLength;
-    unsigned char * (*digFunc)(const void *, CC_LONG, unsigned char *) = NULL;
+    unsigned char * (*digestFunction)(const void *, CC_LONG, unsigned char *) = NULL;
     
     switch (type) {
         case JKStringDigestTypeMD5:
             digestLength = CC_MD5_DIGEST_LENGTH;
-            digFunc = CC_MD5;
+            digestFunction = CC_MD5;
             break;
         case JKStringDigestTypeSHA1:
             digestLength = CC_SHA1_DIGEST_LENGTH;
-            digFunc = CC_SHA1;
+            digestFunction = CC_SHA1;
             break;
         case JKStringDigestTypeSHA512:
             digestLength = CC_SHA512_DIGEST_LENGTH;
-            digFunc = CC_SHA512;
+            digestFunction = CC_SHA512;
             break;
     }
     
     unsigned char result[digestLength]; 
-    digFunc(s, strlen(s), result);
+    digestFunction(s, strlen(s), result);
     
     NSMutableString *digest = [NSMutableString stringWithCapacity:(digestLength * 2)];
     for (NSUInteger i = 0; i < digestLength; i++)
