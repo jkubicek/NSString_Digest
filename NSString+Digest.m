@@ -16,7 +16,7 @@
 
 - (NSString *)hashWithDigestType:(JKStringDigestType)type {
     const char *s = [self UTF8String];
-    int digestLength;
+    NSUInteger digestLength;
     unsigned char * (*digestFunction)(const void *, CC_LONG, unsigned char *) = NULL;
     
     switch (type) {
