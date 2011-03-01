@@ -1,6 +1,7 @@
 #import <Foundation/Foundation.h>
 #import <CommonCrypto/CommonDigest.h>
 #import "NSString+Digest.h"
+#import "GTMBase64.h"
 
 @implementation NSString (NSString_Digest)
 
@@ -37,11 +38,9 @@
     unsigned char result[digestLength]; 
     digestFunction(s, (CC_LONG)strlen(s), result);
     
-    NSMutableString *digest = [NSMutableString stringWithCapacity:(digestLength * 2)];
-    for (NSUInteger i = 0; i < digestLength; i++)
-        [digest appendFormat:@"%02x",result[i]];
+    NSString *base64 = [GTMBase64 stringByEncodingBytes:result length:digestLength];
     
-    return [NSString stringWithString:digest];
+    return base64;
 }
 
 @end
