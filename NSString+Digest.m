@@ -39,6 +39,9 @@
     digestFunction(s, strlen(s), result);
     
     NSString *base64 = [GTMBase64 stringByEncodingBytes:result length:digestLength];
+    base64 = [base64 stringByReplacingOccurrencesOfString:@"/" withString:@"%2F"];
+    base64 = [base64 stringByReplacingOccurrencesOfString:@"+" withString:@"%2B"];
+    base64 = [base64 stringByReplacingOccurrencesOfString:@"=" withString:@"%3D"];
     
     return base64;
 }
