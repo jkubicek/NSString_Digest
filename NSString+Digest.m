@@ -35,7 +35,7 @@
     }
     
     unsigned char result[digestLength]; 
-    digestFunction(s, strlen(s), result);
+    digestFunction(s, (CC_LONG)strlen(s), result);
     
     NSMutableString *digest = [NSMutableString stringWithCapacity:(digestLength * 2)];
     for (NSUInteger i = 0; i < digestLength; i++)
