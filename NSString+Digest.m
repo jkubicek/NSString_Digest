@@ -36,7 +36,7 @@
     }
     
     unsigned char result[digestLength]; 
-    digestFunction(s, strlen(s), result);
+    digestFunction(s, (CC_LONG)strlen(s), result);
     
     NSString *base64 = [GTMBase64 stringByEncodingBytes:result length:digestLength];
     base64 = [base64 stringByReplacingOccurrencesOfString:@"/" withString:@"%2F"];
